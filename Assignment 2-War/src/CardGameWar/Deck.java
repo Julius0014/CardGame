@@ -14,22 +14,30 @@ public class Deck {
 	public Deck() {
 		CreateDeck();
 		shuffle();
-		
 	}
 	public static void shuffle() {
 		Collections.shuffle(Cards);
-		for(Card s: Cards) {
-			System.out.println(s.toString());
-		}
 	}
 	public static void CreateDeck() {
-		
 		for(String suit: suits) {
 			int i = 2;
 			for(String value : values) {
 				Cards.add(new Card(suit,value,i++));
-			
 			}
 		}
 	}
-}
+	public void createHands(ArrayList<Player> players) {
+		int num_card_to_add = Deck.Cards.size()/players.size();
+		int cardsAdded;
+		for(Player player: players) {
+			cardsAdded = 0;
+			for(int i =0;i < Cards.size();i++)
+				if( cardsAdded == num_card_to_add) {
+					break;
+				}
+				player.myHand.add_card_to_Hand(Cards.remove(0));
+			}
+		}
+		
+	}
+

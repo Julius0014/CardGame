@@ -11,7 +11,7 @@ public class Card {
 	}
 	@Override
 	public String toString() {
-		return this.WordValue + " of " + this.suits +this.value;
+		return this.WordValue + " of " + this.suits;
 	}
 	
 	
